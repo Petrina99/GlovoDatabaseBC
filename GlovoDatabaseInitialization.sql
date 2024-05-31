@@ -8,6 +8,7 @@ create table "Restaurant" (
 	"RestaurantName" text not null,
 	"RestaurantAddres" text,
 	"RestaurantType" text,
+	"CityId" int,
 	constraint "FK_Restaurant_City_CityId"
 		foreign key ("CityId")
 		references "City"("Id")
@@ -78,7 +79,7 @@ create table "MenuItem"(
 	constraint "FK_MenuItem_MenuItemCategory_MenuItemCategoryId"
 		foreign key ("MenuItemCategoryId")
 		references "MenuItemCategory"("Id")
-		on delete set null
+		on delete set null,
 	constraint "FK_MenuItem_Restaurant_RestaurantId"
 		foreign key ("RestaurantId")
 		references "Restaurant"("Id")
